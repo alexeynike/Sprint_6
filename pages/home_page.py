@@ -21,7 +21,7 @@ class HomePage(BasePage):
 
     @allure.step('Открыть аккордион {name}')
     def open_accordion(self, name):
-        accordions = self.driver.find_elements(*HomePageLocators.ACCORDION_ITEM)
+        accordions = self._find_elements(*HomePageLocators.ACCORDION_ITEM)
         for accordion in accordions:
             if accordion.text == name:
                 accordion.click()
@@ -37,7 +37,7 @@ class HomePage(BasePage):
     @allure.step('Клик по кнопке "Заказать" в хеддере')
     def open_order_page_by_header_btn(self):
         self._click_element(*self.locator.HEADER_ORDER_BTN)
-        return OrderPage(self.driver)
+
 
     @allure.step('Проверка нахождения пользователя на главной странице')
     def assert_home_page_is_opened(self):

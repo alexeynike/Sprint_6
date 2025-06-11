@@ -5,7 +5,7 @@ from pages.home_page import HomePage
 from data.accordion_data import accordions_data
 
 class TestHomePage:
-    @allure.step('Проверка функционала аккордионов')
+    @allure.title('Проверка функционала аккордионов')
     @pytest.mark.parametrize("index, title, expected_text", accordions_data)
     def test_check_question_about_necessary(self, browser, index, title, expected_text):
         home_page = HomePage(browser)
